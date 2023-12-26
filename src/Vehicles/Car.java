@@ -1,14 +1,12 @@
 package Vehicles;
 
-import Pricing.PricingSystem;
-
 public class Car extends Vehicle {
     public String brand;
     public String color;
 
     public Car(String registration_no) {
         this.registration_no = registration_no;
-        vehicle_count += 1;
+        super.vehicle_count += 1;
         this.vehicle_id = vehicle_count;
     }
 

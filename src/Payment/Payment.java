@@ -34,4 +34,13 @@ public class Payment {
     public void setPayment_method(String payment_method) {
         this.payment_method = payment_method;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "payment_id='" + payment_id + '\'' +
+                ", price=" + price +
+                ", payment_method='" + payment_method + '\'' +
+                '}';
+    }
 }

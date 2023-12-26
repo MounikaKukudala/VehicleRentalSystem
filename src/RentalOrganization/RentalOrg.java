@@ -13,7 +13,9 @@ public class RentalOrg {
 
     private String address;
 
-    private List<Vehicle> vehicles = new ArrayList<Vehicle>();
+    private int num_bookings=0;
+
+    private List<Vehicle> vehicles = new ArrayList<>();
 
     public RentalOrg(String id, String name, String address) {
         this.id = id;
@@ -21,8 +23,8 @@ public class RentalOrg {
         this.address = address;
     }
 
-    public void RegisterVehicle( Vehicle vehicle ){
-        this.vehicles.add(vehicle);
+    public void RegisterVehicles( List<Vehicle> new_vehicles ){
+        this.vehicles.addAll(new_vehicles);
     }
 
     public void removeVehicle( Vehicle vehicle ){
@@ -31,7 +33,8 @@ public class RentalOrg {
 
     public Booking reserveVehicle( Vehicle vehicle, User user, Payment payment, int hours){
         vehicle.setIs_available(false);
-        return new Booking(user,vehicle,payment,hours);
+        this.num_bookings += 1;
+        return new Booking("id"+ num_bookings,user,vehicle,payment,hours);
     }
 
     public void unreserveVehicle( Vehicle vehicle ){

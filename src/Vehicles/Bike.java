@@ -5,7 +5,7 @@ public class Bike extends Vehicle {
 
     public Bike(String registration_no) {
         this.registration_no = registration_no;
-        vehicle_count += 1;
+        super.vehicle_count += 1;
         this.vehicle_id = vehicle_count;
     }
 

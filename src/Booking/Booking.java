@@ -21,7 +21,7 @@ public class Booking {
     }
 
     public User getUser() {
-        return this.user;
+        return user;
     }
 
     public void setUser(User user) {
@@ -44,11 +44,11 @@ public class Booking {
         this.vehicle = vehicle;
     }
 
-    public Payment getPayment_id() {
-        return this.payment;
+    public Payment getPayment() {
+        return payment;
     }
 
-    public void setPayment_id(Payment payment) {
+    public void setPayment(Payment payment) {
         this.payment = payment;
     }
 
@@ -68,19 +68,27 @@ public class Booking {
         this.price = price;
     }
 
-    public Booking(User user, Vehicle vehicle, Payment payment, int hours) {
-        this.id = "abc";
+    public Booking(String id, User user, Vehicle vehicle, Payment payment, int hours) {
+        this.id = id;
         this.user = user;
-        this.start_time = System.currentTimeMillis();;
+        this.start_time = System.currentTimeMillis();
         this.payment = payment;
         this.vehicle = vehicle;
         this.hours = hours;
         this.price = vehicle.ChargePrice(this.hours);
+        System.out.println("Created booking: "+ this);
     }
 
-    public int GetPrice(){
-        long current_time = System.currentTimeMillis();
-        int hours = (int) (current_time-start_time)/3600;
-        return vehicle.ChargePrice(hours);
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id='" + id + '\'' +
+                ", user=" + user +
+                ", start_time=" + start_time +
+                ", vehicle=" + vehicle +
+                ", payment=" + payment +
+                ", hours=" + hours +
+                ", price=" + price +
+                '}';
     }
 }

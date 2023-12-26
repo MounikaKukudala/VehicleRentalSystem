@@ -34,4 +34,13 @@ public class User {
     public void setPhoneNumber(int phoneNumber) {
         PhoneNumber = phoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", PhoneNumber=" + PhoneNumber +
+                '}';
+    }
 }

@@ -2,8 +2,8 @@ package Vehicles;
 
 import Pricing.PricingSystem;
 
-public class Vehicle extends PricingSystem {
-    public static int vehicle_count=0;
+public abstract class Vehicle implements PricingSystem {
+    public static int vehicle_count;
     public int vehicle_id;
     public String registration_no;
     private boolean is_available=false;
@@ -24,4 +24,12 @@ public class Vehicle extends PricingSystem {
         this.is_available = is_available;
     }
 
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vehicle_id=" + vehicle_id +
+                ", registration_no='" + registration_no + '\'' +
+                ", is_available=" + is_available +
+                '}';
+    }
 }
